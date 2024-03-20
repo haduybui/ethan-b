@@ -44,3 +44,37 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+build Docker image
+
+```bash
+$ docker build -t duyhabui/ethan-b .
+```
+
+host K8 locally
+
+```bash
+$ cd .infra/k8s
+```
+
+run the deployment of the Cluster
+
+```bash
+$ kubectl apply -f deployment.yaml
+```
+
+Run the service of the Cluster
+
+```bash
+$ kubectl apply -f load-balancer.yaml
+```
+
+To delete, check the name space then delete all resource inside the namespace
+
+```bash
+$ kubectl get namespace
+```
+
+```bash
+$ kubectl delete all --all -n ethan-b
+```
